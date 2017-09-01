@@ -1,3 +1,24 @@
+"""
+Contains classes that allows you  to manage ovirt and calamari sdk interfaces
+
+>>> kwargs = {"url":'https://localhost/ovirt-engine/api', "username":"admin@internal", "password":"password", 'ca_file': '/etc/pki/ovirt-engine/ca.pem', 'insecure':'True'}
+>>> import proxy
+>>> p = proxy.Proxy('ovirt', **kwargs)
+>>> p.get_connection()
+<ovirtsdk4.Connection object at 0x7f2c99791150>
+>>> con = p.get_connection()
+>>> con.system_service().vms_service()
+<ovirtsdk4.services.VmsService object at 0x7f2c8abb3e10>
+>>> vm_service  =con.system_service().vms_service()
+>>> vms = vm_service.list()
+[<ovirtsdk4.types.Vm object at 0x7f2c8abb3f50>, <ovirtsdk4.types.Vm object at 0x7f2c8abddc10>, <ovirtsdk4.types.Vm object at 0xcf1390>]
+
+>>> vms
+[<ovirtsdk4.types.Vm object at 0x7f2c8abb3e50>, <ovirtsdk4.types.Vm object at 0xcf40d0>, <ovirtsdk4.types.Vm object at 0xcf4810>]
+"""
+
+
+
 #import ovirt python sdk
 import ovirtsdk4 as sdk
 #imports for calamari will be here
